@@ -1,24 +1,44 @@
+:root {
+  --bg: #0e0e0e;
+  --surface: #161818;
+  --border: #262626;
+  --text: #f2f2f2;
+  --text-secondary: #aaaaaa;
+  --accent: #26a69a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  font-family: system-ui, sans-serif;
-  color: #1a1a1a;
-  background: #fafafa;
+  font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--text);
+  background: var(--bg);
 }
 
-header {
-  padding: 1.5rem 1rem 1rem;
-  text-align: center;
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 1.25rem;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  animation: fade-slide-in 400ms ease both;
 }
 
-header h1 {
-  margin: 0;
-  font-size: 1.75rem;
+.logo {
+  color: var(--accent);
+  flex-shrink: 0;
 }
 
-hr {
-  border: none;
-  border-top: 1px solid #ccc;
-  margin: 0;
+.navbar-title {
+  font-size: 1.1rem;
+  font-weight: 600;
 }
 
 main {
@@ -29,10 +49,11 @@ main {
 
 .controls {
   display: flex;
-  gap: 1.5rem;
+  gap: 1rem;
   flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 1.5rem;
+  animation: fade-slide-in 400ms ease 100ms both;
 }
 
 .control {
@@ -44,16 +65,33 @@ main {
 .control label {
   font-size: 0.85rem;
   font-weight: 600;
+  color: var(--text-secondary);
 }
 
 .control select {
-  padding: 0.4rem;
+  padding: 0.5rem 0.6rem;
   font-size: 1rem;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  transition: border-color 150ms ease, box-shadow 150ms ease, background-color 150ms ease;
+}
+
+.control select:hover {
+  background-color: #1d2020;
+}
+
+.control select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--accent);
 }
 
 .viewer {
   display: flex;
   justify-content: center;
+  animation: fade-slide-in 400ms ease 200ms both;
 }
 
 .viewer img {
@@ -61,16 +99,46 @@ main {
   max-width: 640px;
   aspect-ratio: 4 / 5;
   object-fit: contain;
-  background: #fff;
-  border: 1px solid #ddd;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  transition: opacity 150ms ease;
+}
+
+.viewer img.fading {
+  opacity: 0;
 }
 
 footer {
   text-align: center;
   padding: 1.5rem 1rem;
   font-size: 0.85rem;
+  color: var(--text-secondary);
 }
 
 footer a {
-  color: #555;
+  color: var(--accent);
+  transition: color 150ms ease;
+}
+
+footer a:hover {
+  color: #64d8cb;
+}
+
+@keyframes fade-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
 }
