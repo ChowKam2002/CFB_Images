@@ -1,1 +1,34 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Current Feedback Response Visualization</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Current Feedback Response Visualization</h1>
+  </header>
+  <hr>
+  <main>
+    <div class="controls">
+      <div class="control">
+        <label for="variable-select">Variable Selector</label>
+        <select id="variable-select"></select>
+      </div>
+      <div class="control">
+        <label for="category-select">Condition Sub-Binning Selector</label>
+        <select id="category-select"></select>
+      </div>
+    </div>
+    <div class="viewer">
+      <img id="viewer-image" alt="Selected plot">
+    </div>
+  </main>
+  <footer>
+    <a href="https://github.com/ChowKam2002/CFB_Images" target="_blank" rel="noopener">GitHub Repository</a>
+  </footer>
+  <script src="scripts.js"></script>
+</body>
+</html>
