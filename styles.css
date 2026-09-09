@@ -1,1 +1,76 @@
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  color: #1a1a1a;
+  background: #fafafa;
+}
 
+header {
+  padding: 1.5rem 1rem 1rem;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.75rem;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 0;
+}
+
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+}
+
+.controls {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.control {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.control label {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.control select {
+  padding: 0.4rem;
+  font-size: 1rem;
+}
+
+.viewer {
+  display: flex;
+  justify-content: center;
+}
+
+.viewer img {
+  width: 100%;
+  max-width: 640px;
+  aspect-ratio: 4 / 5;
+  object-fit: contain;
+  background: #fff;
+  border: 1px solid #ddd;
+}
+
+footer {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  font-size: 0.85rem;
+}
+
+footer a {
+  color: #555;
+}
