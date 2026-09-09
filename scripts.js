@@ -102,8 +102,15 @@ function updateImage() {
   const variable = document.getElementById("variable-select").value;
   const category = document.getElementById("category-select").value;
   const image = document.getElementById("viewer-image");
-  image.src = `static/img/nofilt_unbinned/${category}/${variable}.png`;
-  image.alt = `${variable} (${category})`;
+  const nextSrc = `static/img/nofilt_unbinned/${category}/${variable}.png`;
+
+  image.classList.add("fading");
+  const swap = () => {
+    image.src = nextSrc;
+    image.alt = `${variable} (${category})`;
+  };
+  image.addEventListener("load", () => image.classList.remove("fading"), { once: true });
+  setTimeout(swap, 150);
 }
 
 function init() {
